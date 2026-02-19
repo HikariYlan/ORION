@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @source not "../../public";
+
+@theme {
+    --color-night-paper: #1A1823;
+    --color-ink-stone: #242133;
+    --color-smoked-violet: #3F3A57;
+    --color-muted-iris: #5C567A;
+    --color-dust-plum: #2E2A40;
+    --color-soft-ash: #E6E4EF;
+    --color-fog-grey: #A9A6BC;
+    --color-faded-amethyst: #8C82B8;
+}
