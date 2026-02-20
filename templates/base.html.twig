@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="m-2">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <title>{% block title %}ORION - World builder tool{% endblock %}</title>
+        <link rel="icon" href="{{ asset('build/images/icon.svg') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/502d1754c4.js" crossorigin="anonymous"></script>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -12,7 +16,27 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body class="bg-night-paper font-[Inter]">
+        <div class="flex justify-center text-cold-white items-center">
+            <a href="{{ path('app_home') }}">
+                <p class="text-5xl cursor-pointer font-semibold hover:text-spun-pearl">
+                    <i class="fa-solid fa-book text-fog-grey"></i>ORION
+                </p>
+            </a>
+            {% if world.title ?? false %}
+            <a class="flex flex-1 justify-center text-6xl hover:text-spun-pearl cursor-pointer font-bold">
+                <p>{{ world.title }}</p>
+            </a>
+            {% endif %}
+            <div class="flex ml-auto justify-end items-center gap-5 mx-5">
+                <a href="" class="cursor-pointer hover:text-spun-pearl">
+                    <p>Sign In</p>
+                </a>
+                <a href="" class="border border-spun-pearl rounded-md p-2 cursor-pointer hover:bg-soft-ash hover:text-ink-stone">
+                    <p>Sign Up</p>
+                </a>
+            </div>
+        </div>
         {% block body %}{% endblock %}
     </body>
 </html>
