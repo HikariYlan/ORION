@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="m-2">
+<html lang="en" class="m-2 h-full">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}ORION - World builder tool{% endblock %}</title>
@@ -16,7 +16,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="bg-night-paper font-[Inter]">
+    <body class="bg-night-paper font-[Inter] h-full">
         <div class="flex justify-center text-cold-white items-center">
             <a href="{{ path('app_home') }}">
                 <p class="text-5xl cursor-pointer font-semibold hover:text-spun-pearl">
