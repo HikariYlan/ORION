@@ -1,20 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/Utilisateur/Documents/cle_USB_YLAN/perso/projets/prog/web/orion/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>C:/Users/Utilisateur/Documents/cle_USB_YLAN/perso/projets/prog/web/orion/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
+    <div class="flex flex-col h-full w-full items-center justify-center text-cold-white font-bold">
+        <p class="text-7xl title">The best tool for the best world.</p>
+        <p class="text-4xl subtitle">ORION is a <span class="text-faded-amethyst">100% free</span> world builder tool that allows creativity to be unleashed at its fullest.</p>
+        <p class="text-xl subtitle">Whether you are a fantasy, sci-fi or even polar writer, ORION is here to help you organize everything.</p>
+    </div>
+    <div class="block">
+        <p>Infinite imagination, infinite worlds.</p>
+        <p>As long as you have new ideas, you can create & manage as many worlds as you want!</p>
+        <cite>"Sky's the only limit"</cite>
+    </div>
+    <div class="block">
+        <p>A big, joyful family.</p>
+        <p>You can manage every character of your world by adding infos such as their name, age, gender, personality...</p>
+        <cite>"Family, where life begins and love never ends."</cite>
+    </div>
+    <div class="block">
+        <p>There's a lot to explore.</p>
+        <p>Define every important locations like planets, cities or even points of interest to make your world feel alive.</p>
+        <cite>"One kilometer on foot wears out, wears out..."</cite>
+    </div>
+    <div class="block">
+        <p>But wait, there's more!</p>
+        <p>ORION can manage a lot more than that! Technologies, factions/organizations, cultures, species/creatures, chronological events...
+            Anything that comes from your mind is manageable here :)
+        </p>
+        <cite>"ORION is the best!" - Its creator</cite>
+    </div>
+    <div class="text-cold-white">
+        <p class="text-7xl font-bold">Interested? Try it <a href="" class="cursor-pointer text-spun-pearl">now</a>!</p>
+        <br>
+        <p class="text-5xl font-semibold">Remember: ORION is <span class="text-faded-amethyst">100% free</span>! No low blow, no false promises, only fully honest!</p>
+    </div>
+    <div class="text-cold-white m-2 bg-smoked-violet rounded-2xl p-2">
+        <p class="text-xl">A note from the creator, Hikari/Ylan:</p>
+        <p>Since 2018, I'm writing my own book. After years of writing ideas on many Word documents, it became more and
+            more difficult to remember everything without opening 3+ docs. I started to learn how to code websites when
+            I was 15 and since then, I never stopped. I wanted for a long time to link these two hobbies together, without
+            really knowing how. Then one day, while being at my internship's office, out of nowhere, I finally found the
+            missing piece, the missing link: making an online world builder tool. Yes, it already exists a ton of them,
+            but not one I made with my own skill and love. So is born ORION. I hope you will have as much fun using it as
+            I have when coding it, because it was - and is - a really fun and interesting project.
+        </p>
+    </div>
 {% endblock %}
