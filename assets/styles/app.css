@@ -18,3 +18,40 @@
     /* Icon */
     --color-faded-amethyst: #8C82B8;
 }
+
+@keyframes slide-bottom-to-top {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.slide-b-to-t, .title, .subtitle {
+    opacity: 0;
+    animation: slide-bottom-to-top ease-in-out 0.8s forwards;
+}
+
+.subtitle {
+    animation-delay: 1.1s;
+}
+
+.block {
+    @apply flex flex-col rounded-md bg-ink-stone shadow-xl text-cold-white p-2 w-200 m-10 text-2xl;
+}
+
+.block > p:first-child {
+    @apply text-5xl text-faded-amethyst font-bold;
+}
+
+.block > cite {
+    @apply text-4xl text-fog-grey font-semibold;
+}
+
+.block:nth-child(even) {
+    @apply ml-auto text-right;
+}
+
