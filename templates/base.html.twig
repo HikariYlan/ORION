@@ -16,7 +16,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="bg-night-paper font-[Inter] h-full">
+    <body class="bg-night-paper font-[Inter] h-full" data-turbo="false">
         <div class="flex justify-center text-cold-white items-center">
             <a href="{{ path('app_home') }}">
                 <p class="text-5xl cursor-pointer font-semibold hover:text-spun-pearl">
@@ -28,14 +28,17 @@
                 <p>{{ world.title }}</p>
             </a>
             {% endif %}
-            <div class="flex ml-auto justify-end items-center gap-5 mx-5">
-                <a href="" class="cursor-pointer hover:text-spun-pearl">
-                    <p>Sign In</p>
-                </a>
-                <a href="" class="border border-spun-pearl rounded-md p-2 cursor-pointer hover:bg-soft-ash hover:text-ink-stone">
-                    <p>Sign Up</p>
-                </a>
-            </div>
+            {% if app.user %}
+            {% else %}
+                <div class="flex ml-auto justify-end items-center gap-5 mx-5">
+                    <a href="{{ path('app_sign_in') }}" class="cursor-pointer hover:text-spun-pearl">
+                        <p>Sign In</p>
+                    </a>
+                    <a href="{{ path('app_sign_up') }}" class="border border-spun-pearl rounded-md p-2 cursor-pointer hover:bg-soft-ash hover:text-ink-stone">
+                        <p>Sign Up</p>
+                    </a>
+                </div>
+            {% endif %}
         </div>
         {% block body %}{% endblock %}
     </body>
