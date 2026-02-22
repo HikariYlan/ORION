@@ -34,7 +34,10 @@ class RegistrationFormType extends AbstractType
                         minMessage: 'Your password should be at least {{ limit }} characters',
                     ),
                 ],
+                'error_bubbling' => true,
             ])
+            ->add('firstname')
+            ->add('lastname')
         ;
     }
 
