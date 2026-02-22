@@ -29,6 +29,28 @@
             </a>
             {% endif %}
             {% if app.user %}
+                <div class="flex ml-auto justify-end items-center gap-5 mx-5">
+                    <div class="relative group">
+                        <button class="text-cold-white hover:text-spun-pearl transition-colors duration-200 flex items-center cursor-pointer">
+                            {{ app.user.firstname }} {{ app.user.lastname }}
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 text-cold-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="{{ path('app_home') }}" class="flex items-center px-4 py-3 rounded-t-lg transition-colors hover:text-spun-pearl">
+                                <i class="fa-solid fa-globe me-1"></i>My Worlds
+                            </a>
+                            <a href="{{ path('app_home') }}" class="flex items-center px-4 py-3 rounded-b-lg transition-colors hover:text-spun-pearl">
+                                <i class="fa-solid fa-user me-1"></i> My Profile
+                            </a>
+                            <a href="{{ path('app_home') }}" class="flex items-center px-4 py-3 rounded-b-lg transition-colors hover:text-spun-pearl">
+                                <i class="fa-solid fa-gear me-1"></i> My Settings
+                            </a>
+                        </div>
+                    </div>
+                    <a href="{{ path('app_sign_up') }}" class="border border-spun-pearl rounded-md p-2 cursor-pointer hover:bg-soft-ash hover:text-ink-stone">
+                        <p>Log Out</p>
+                    </a>
+                </div>
             {% else %}
                 <div class="flex ml-auto justify-end items-center gap-5 mx-5">
                     <a href="{{ path('app_sign_in') }}" class="cursor-pointer hover:text-spun-pearl">
