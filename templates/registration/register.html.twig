@@ -3,16 +3,37 @@
 {% block title %}ORION - Sign Up{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="flex flex-col items-center justify-center h-full text-xl text-cold-white">
+        <div class="w-fit">
+            <div class="shadow-lg shadow-smoked-violet bg-smoked-violet rounded-tl-md rounded-tr-md">
+                <h1 class="text-center text-5xl font-semibold p-2">Sign up to ORION</h1>
+            </div>
+            <div class="flex flex-col items-center text-center shadow-lg shadow-smoked-violet rounded-bl-md rounded-br-md bg-ink-stone p-2 font-semibold">
 
-    {{ form_errors(registrationForm) }}
+                <div class="text-red-600">
+                    {{ form_errors(registrationForm) }}
+                </div>
+                {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.username, {
+                        label: 'Your (unique!) username',
+                        attr: {'class': 'flex flex-col m-2 border border-muted-iris bg-fog-grey text-black rounded-md p-2'}
+                    }) }}
+                    {{ form_row(registrationForm.firstname, {
+                        label: 'Your firstname...',
+                        attr: {'class': 'flex flex-col m-2 border border-muted-iris bg-fog-grey text-black rounded-md p-2'}
+                    }) }}
+                    {{ form_row(registrationForm.lastname, {
+                        label: '...and lastname',
+                        attr: {'class': 'flex flex-col m-2 border border-muted-iris bg-fog-grey text-black rounded-md p-2'}
+                    }) }}
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Your password (it\s a secret!)',
+                        attr: {'class': 'flex flex-col m-2 border border-muted-iris bg-fog-grey text-black rounded-md p-2'}
+                    }) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                    <button type="submit" class="border border-dust-plum bg-smoked-violet hover:bg-faded-amethyst p-2 rounded-2xl cursor-pointer">Sign up</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
