@@ -3,36 +3,45 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
+    <div class="flex flex-col items-center justify-center h-full text-xl text-cold-white">
+        <div class="w-fit">
+            <div class="shadow-lg shadow-smoked-violet bg-smoked-violet rounded-tl-md rounded-tr-md">
+                <h1 class="text-center text-5xl font-semibold p-2">Sign in to ORION</h1>
             </div>
-        {% endif %}
+            <div class="flex flex-col items-center text-center shadow-lg shadow-smoked-violet rounded-bl-md rounded-br-md bg-ink-stone p-2 font-semibold">
+                <form method="post">
+                    {% if error %}
+                        <div class="text-red-600">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Username</label>
-        <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
-        <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
+                        </div>
+                    {% endif %}
 
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
+                    <label for="username">Your username</label>
+                    <input type="text" value="{{ last_username }}" name="_username" id="username" class='form-control flex flex-col m-2 border border-muted-iris bg-fog-grey text-black rounded-md p-2' autocomplete="username" required autofocus>
+                    <label for="password">Your password</label>
+                    <input type="password" name="_password" id="password" class='form-control flex flex-col m-2 border border-muted-iris bg-fog-grey text-black rounded-md p-2' autocomplete="current-password" required>
+                    <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
 
-            <div class="checkbox mb-3">
-                <input type="checkbox" name="_remember_me" id="_remember_me">
-                <label for="_remember_me">Remember me</label>
+                    {#
+                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                    See https://symfony.com/doc/current/security/remember_me.html
+
+                    <div class="checkbox mb-3">
+                        <input type="checkbox" name="_remember_me" id="_remember_me">
+                        <label for="_remember_me">Remember me</label>
+                    </div>
+                    #}
+
+                    <button class="border border-dust-plum bg-smoked-violet hover:bg-faded-amethyst p-2 rounded-2xl cursor-pointer w-full" type="submit">
+                        Sign in
+                    </button>
+                </form>
             </div>
-        #}
-
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
-    </form>
+        </div>
+    </div>
 {% endblock %}
