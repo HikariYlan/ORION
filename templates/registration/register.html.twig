@@ -30,6 +30,13 @@
                         label: 'Your password (it\s a secret!)',
                         attr: {'class': 'flex flex-col m-2 border border-muted-iris bg-fog-grey text-black rounded-md p-2'}
                     }) }}
+                    <p>Your continent</p>
+                    {{ form_row(registrationForm.continent, {
+                            label: "(Only used for dynamic content) ",
+                            row_attr: {'class': 'flex flex-col items-center'},
+                            attr: {'class': 'm-2 border border-muted-iris bg-fog-grey text-black rounded-md p-2 text-center'}
+                        })
+                    }}
 
                     <button type="submit" class="border border-dust-plum bg-smoked-violet hover:bg-faded-amethyst p-2 rounded-2xl cursor-pointer w-full">Sign up</button>
                 {{ form_end(registrationForm) }}
