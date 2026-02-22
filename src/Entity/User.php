@@ -47,7 +47,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Timestampable(on: 'create')]
     private ?\DateTime $creationDate = null;
 
-    #[ORM\Column(type: Types::BLOB)]
+    #[ORM\Column(type: Types::BLOB, nullable: true)]
     private mixed $avatar = null;
 
     #[ORM\Column(enumType: ContinentEnum::class)]
