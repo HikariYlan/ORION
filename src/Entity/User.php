@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\ContinentEnum;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -48,6 +49,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::BLOB)]
     private mixed $avatar = null;
+
+    #[ORM\Column(enumType: ContinentEnum::class)]
+    private ?ContinentEnum $continent = null;
 
     public function getId(): ?int
     {
@@ -174,6 +178,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAvatar(mixed $avatar): static
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getContinent(): ?ContinentEnum
+    {
+        return $this->continent;
+    }
+
+    public function setContinent(ContinentEnum $continent): static
+    {
+        $this->continent = $continent;
 
         return $this;
     }
