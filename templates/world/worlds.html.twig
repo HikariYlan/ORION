@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ORION - My Worlds{% endblock %}
+
+{% block body %}
+    {% if worlds is defined and worlds is not empty %}
+        <ul>
+            {% for world in worlds %}
+                <li>
+                    <p>{{ world.name }}</p>
+                    <p>{{ world.description != "" ? world.description : 'This world has no description yet.' }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {% if app.user.username is defined %}
+            <cite>"It's calm, very calm..."</cite>
+            <p>It seems that you haven't created any world yet. <a>Create one here!</a></p>
+        {% else %}
+            <p>Uh Oh.</p>
+            <p>You are not connected yet.</p>
+            <p><a href="{{ path('app_sign_in') }}">Sign in</a> to your existing account or <a href="{{ path('app_sign_up') }}">sign up</a> to create a new one.</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}
