@@ -28,6 +28,9 @@ class World
     #[ORM\Column(type: Types::SIMPLE_ARRAY, enumType: TypesEnum::class)]
     private array $type = [];
 
+    #[ORM\Column(length: 300, nullable: true)]
+    private ?string $description = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,6 +83,18 @@ class World
     public function setType(array $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }
