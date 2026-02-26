@@ -12,9 +12,17 @@ final class WorldController extends AbstractController
     #[Route('/my_worlds', name: 'app_my_worlds')]
     public function index(): Response
     {
-        return $this->render('world/worlds.html.twig', [
-            /** @var User $user */
-            'worlds' => $this->getUser()->getWorlds(),
-        ]);
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if ($user) {
+            $worlds = $user->getWorlds();
+
+            return $this->render('world/worlds.html.twig', [
+                'worlds' => $worlds,
+            ]);
+        }
+
+        return $this->render('world/worlds.html.twig');
     }
 }
