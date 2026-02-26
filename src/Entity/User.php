@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Enum\ContinentEnum;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation\Timestampable;
@@ -52,6 +54,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(enumType: ContinentEnum::class)]
     private ?ContinentEnum $continent = null;
+
+    /**
+     * @var Collection<int, World>
+     */
+    #[ORM\OneToMany(targetEntity: World::class, mappedBy: 'owner')]
+    private Collection $worlds;
+
+    public function __construct()
+    {
+        $this->worlds = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -190,6 +203,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setContinent(ContinentEnum $continent): static
     {
         $this->continent = $continent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, World>
+     */
+    public function getWorlds(): Collection
+    {
+        return $this->worlds;
+    }
+
+    public function addWorld(World $world): static
+    {
+        if (!$this->worlds->contains($world)) {
+            $this->worlds->add($world);
+            $world->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWorld(World $world): static
+    {
+        if ($this->worlds->removeElement($world)) {
+            // set the owning side to null (unless already changed)
+            if ($world->getOwner() === $this) {
+                $world->setOwner(null);
+            }
+        }
 
         return $this;
     }
