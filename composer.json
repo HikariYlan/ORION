@@ -91,6 +91,7 @@
             "symfony serve"
         ],
         "tailwind": [
+            "npm install",
             "Composer\\Config::disableProcessTimeout",
             "npm run watch"
         ],
