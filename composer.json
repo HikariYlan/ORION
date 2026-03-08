@@ -87,6 +87,7 @@
             "@auto-scripts"
         ],
         "start": [
+            "composer install",
             "Composer\\Config::disableProcessTimeout",
             "symfony serve"
         ],
