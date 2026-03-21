@@ -6,6 +6,7 @@ use App\Enum\TypesEnum;
 use App\Repository\WorldRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation\Timestampable;
 
 #[ORM\Entity(repositoryClass: WorldRepository::class)]
 class World
@@ -23,6 +24,7 @@ class World
     private ?User $owner = null;
 
     #[ORM\Column]
+    #[Timestampable(on: 'create')]
     private ?\DateTime $creationDate = null;
 
     #[ORM\Column(type: Types::SIMPLE_ARRAY, enumType: TypesEnum::class)]

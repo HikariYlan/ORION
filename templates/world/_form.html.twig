@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ORION - {{ title }}{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.type) }}
+        {{ form_row(form.description) }}
+    <button type="submit">{{ submitLabel }}</button>
+    {{ form_end(form) }}
+{% endblock %}
